@@ -67,7 +67,7 @@ html,body{height:100%;margin:0;font-family:var(--font-ui),system-ui,-apple-syste
 
 /* subtle grid background */
 body{
-  min-height:100dvh;
+  min-height:100vh;
   
   overflow:auto;
   
@@ -270,7 +270,7 @@ body{
 .response-block{
   margin:1rem 0;padding:1.2rem;border-radius:12px;
   animation:fadeIn 1.8s ease forwards; transition:box-shadow 0.4s,transform 0.4s;
-  line-height:1.5;position:relative;cursor:pointer;overflow:hidden;animation:pulse 6s infinite ease-in-out;
+  line-height:1.5;position:relative;cursor:pointer;overflow:hidden;animation:pulse 56s infinite ease-in-out;
   background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.25));
   border: 1px solid rgba(255,255,255,0.03);
 }
@@ -289,7 +289,7 @@ body{
 .input-container{position:fixed;left:20px;right:20px;bottom:90px;display:flex;gap:10px;z-index:2;max-width:calc(100% - 40px)}
 .input-container input{flex:1;padding:10px;border:none;border-radius:20px;background:rgba(255,255,255,0.1);color:inherit;outline:none;font-size:16px;transition:background 0.4s}
 .input-container input:focus{background:rgba(255,255,255,0.2)}
-.input-container button{width:60px;height:60px;border:none;border-radius:50%;background:linear-gradient(45deg,#111,#5e5c5e);color:#fff;font-size:1.5em;cursor:pointer;display:flex;justify-content:center;align-items:center;animation:pulse 2s infinite ease-in-out;transition:transform 0.4s}
+.input-container button{width:60px;height:60px;border:none;border-radius:50%;background:linear-gradient(45deg,#111,#5e5c5e);color:#fff;font-size:1.5em;cursor:pointer;display:flex;justify-content:center;align-items:center;animation:pulse 39s infinite ease-in-out;transition:transform 0.4s}
 .input-container button:hover{transform:scale(1.1)}
 
 /* ========== GENERIC MODAL / PANEL / BOX ========== */
@@ -329,6 +329,7 @@ body{
 }
 .lock-button:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.8)}
 
+/*.input-row{left:50%;transform:translate(-50%,-50%);}*/
 /* zen-mode */
 .fade-out{opacity:0;transform:translateY(5px)}
 .fade-in{opacity:1;transform:translateY(0)}
@@ -362,14 +363,14 @@ body.zen-mode .response-container, body.zen-mode .input-container, body.zen-mode
 /* symbolbar / controls / iframe area */
 /*.wrap{width:100%;height:100%;position:relative;overflow:auto;display:flex;flex-direction:column}
 .content{flex:1;position:relative;display:flex}
-iframe#frame{width:100%;height:100%;border:0;transition:opacity .4s;opacity:1}
-.symbol-bar{position:fixed;right:8px;top:33%;
-  display:none;flex-direction:column;gap:10px;z-index:60}
+iframe#frame{width:100%;height:100%;border:0;transition:opacity .4s;opacity:1} */
+
+
 .symbol-button{width:28px;height:28px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:var(--card-bg);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(6px)}
 .symbol-button:hover{transform:scale(1.06);box-shadow:0 6px 18px rgba(0,0,0,0.4)}
 .controls{position:fixed;left:16px;top:120px;display:none;flex-direction:column;gap:10px;z-index:60}
 .btn{padding:8px 10px;border-radius:8px;background:var(--glass);border:1px solid rgba(255,255,255,0.06);cursor:pointer;color:var(--text)}
-#decoderBox{display:none} */
+
 .wrap{width:100%;min-height:100vh;height:100%;position:relative;overflow:auto;display:flex;flex-direction:column}
 .content{flex:1;position:relative;display:flex}
 iframe#frame{width:100%;min-height:100vh;height:100%;border:0;transition:opacity .4s;opacity:1}
@@ -2018,12 +2019,21 @@ const showLoading = msg => {
 <div class="wrap">
   <div class="content">
  <!--   <iframe id="frame" src="https://kodux78k.github.io/oiDual-idHome/" title="Dual Infodose frame"></iframe> -->
-    <iframe id="frame" src="https://kodux78k.github.io/oiDual-H0/DH0-10.html" title="Dual Infodose frame"></iframe>
+    <iframe src="https://kodux78k.github.io/oiDual-diHib/" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy" style="
+
+
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    border: 0;
+    border-radius: 8px;
+  ">
+</iframe>
   </div>
 
   
-<div id="fusion-soft-layer"></div>
- <div id="navRoot"></div> 
+<!-- <div id="fusion-soft-layer"></div>
+ <div id="navRoot"></div> -->
   <script src="https://kodux78k.github.io/oiDual-0i/0RB-0S17.js"></script>
 
 
@@ -2077,7 +2087,7 @@ const showLoading = msg => {
     <div class="input-row">
         <button class="btn-icon" id="btnVoice" title="Voz"><svg><use href="#icon-voice"></use></svg></button>
         <button class="btn-icon" id="btnUploadFile" title="Enviar Arquivo"><svg><use href="#icon-upload"></use></svg></button>
-        <input type="text" id="userInput" class="glass-input" placeholder="Emitir pulso..." autocomplete="off">
+       <!-- <input type="text" id="userInput" class="input-container glass-input" placeholder="Emitir pulso..." autocomplete="off"> -->
         <button class="btn-icon btn-primary" id="btnSend" title="Enviar"><svg><use href="#icon-send"></use></svg></button>
     </div>
   </div>
@@ -2105,7 +2115,8 @@ const showLoading = msg => {
             <div class="cockpit-item"><div class="cockpit-label">Identificação</div><input type="text" id="inputUserId" class="cockpit-input" placeholder="Anônimo"></div>
             <div class="cockpit-item"><div class="cockpit-label">Modelo IA</div><input type="text" id="inputModel" class="cockpit-input" placeholder="google/gemini-2.0-flash-exp"></div>
             <div class="cockpit-item"><div class="cockpit-label">Background</div><div style="display:flex;justify-content:space-between;align-items:center;"><span id="bgStatusText" style="font-size:0.8rem;color:var(--text-muted)">Nenhum</span><label class="btn-icon" style="width:30px;height:30px;border-radius:5px;"><input type="file" id="bgUploadInput" accept="image/*" style="display:none"><svg><use href="#icon-cards"></use></svg></label></div></div>
-        </div>
+       <div id="bgThumbPanel" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px;"></div>
+         </div>
       </div>
     </div>
   </div>
@@ -2116,9 +2127,6 @@ const showLoading = msg => {
       <div class="drawer-body" id="deckList"><div style="text-align:center;color:var(--text-muted);margin-top:20px">O vazio reina aqui.<br>Use o botão 💎 para salvar.</div></div>
     </div>
   </div>
-
-
-
 
 
 <!-- ============ TEXT BEAUTY & INTERACTION PATCH — V3 (aditivo) ============ -->
@@ -2161,6 +2169,8 @@ const showLoading = msg => {
 <script src="https://kodux78k.github.io/oiDual-0i/0RB-0S17.js"></script>
 
 
+<script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/bgPanel.js"></script>
+
 <!-- 1 -->
 <script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/inline-1.js"></script>
 
@@ -2176,17 +2186,19 @@ const showLoading = msg => {
 
 
 
-<iframe src="https://kodux78k.github.io/oiDual-H0/index.html?v=1770092268264" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy" style="
 
+<!-- <iframe src="https://kodux78k.github.io/oiDual-H0/DH0-10.html" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy" style="
 
+    background: rgba(0,0,0,0);
     width: 100%;
-    height: 100vh;
+    height: 100%;
+  min-height:100vh;
     z-index: 0;
     border: 0;
-    border-radius: 8px;
+    border-radius: 4px;
   ">
-</iframe>
+</iframe> -->
 
 <style> body,html {min-height:100vh; height:100%;overflow:auto;} 
 </style>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script><script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script><script src="https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/build/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script><script>hljs.highlightAll();</script><script src="https://kodux78k.github.io/oiDual-0i/0RB-0S17.js"></script><script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/inline-1.js"></script><script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/inline-2.js"></script><script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/inline-3.js"></script><script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/inline-4.js"></script></body></html>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script><script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script><script src="https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/build/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script><script>hljs.highlightAll();</script><script src="https://kodux78k.github.io/oiDual-0i/0RB-0S17.js"></script><script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/bgPanel.js"></script><script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/inline-1.js"></script><script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/inline-2.js"></script><script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/inline-3.js"></script><script src="https://kodux78k.github.io/oiDual-KxT-di_oi/js/modules/inline-4.js"></script></body></html>
